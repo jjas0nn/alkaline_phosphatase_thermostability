@@ -15,7 +15,7 @@ class process_csv:
         self.header=data[0]
     def get_header(self):
         return self.header
-    def csv2dict(self,header_item):
+    def csv2dict(self):
         i=0
         j=1
         csvdict={}
@@ -24,8 +24,8 @@ class process_csv:
             while j<len(data):
                 csvdict[header[i]].append(data[j][i])
                 j+=1
-        j=1
-        i+=1
+            j=1
+            i+=1
         for key,val in csvdict.items():
             val=list(map(float, [a for a in val if a]))
             csvdict[key]=val
