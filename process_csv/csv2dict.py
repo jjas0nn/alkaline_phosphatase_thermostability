@@ -20,4 +20,3 @@ for key,val in csvdict.items():
     val=list(map(float, [a for a in val if a]))
     csvdict[key]=val
 print(csvdict)
-jason=process_csv("dataset/dataset.csv")
