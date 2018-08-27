@@ -63,5 +63,6 @@ class process_csv:
         plt.ylabel(ylabel)
         plt.title(title)
         plt.legend()
+        plt.rcParams["figure.figsize"] = [20,12]
         plt.savefig('plot.png',bbox_inches='tight')
 
