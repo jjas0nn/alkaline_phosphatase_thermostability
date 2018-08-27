@@ -1,4 +1,4 @@
-# alkaline_phosphatase_thermostability
+# alkaline phosphatase thermostability
 jupyter notebook
 
 ## Background
