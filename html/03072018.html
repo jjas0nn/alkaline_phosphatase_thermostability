@@ -11792,7 +11792,6 @@ div#notebook {
 </ul>
 </li>
 <li>18 replicates</li>
-<li>750 uL total assay volume (in cuvette)</li>
 <li>no osmolytes</li>
 </ul>
 <h2 id="objectives">objectives<a class="anchor-link" href="#objectives">&#182;</a></h2><hr>
@@ -11809,18 +11808,73 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="dilution">dilution<a class="anchor-link" href="#dilution">&#182;</a></h2><ul>
-<li>calculate # of reps $$ 4 days*3 reps/day=12 reps$$</li>
+<li>calculate # of replicates $$ 4 days*3 reps/day=12 reps$$</li>
 <li>vol per tube $$\frac{(75 uL 50mg/mL A.P +1425 uL H2O)}{12 tubes}$$</li>
 <li>vol in all tubes $$1500uL=12 reps*125 uL 2.5 mg/mL A.P/tube$$</li>
-<li>actual reps-1 55 deg rep: $$17reps=3 days*3 temps/day*2 reps/temp-1 rep$$</li>
+<li>actual reps-1 (55 deg rep): $$17reps=3 days*3 temps/day*2 reps/temp-1 rep$$</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="raw-velocity-/min">raw velocity /min<a class="anchor-link" href="#raw-velocity-/min">&#182;</a></h2><table>
+<thead><tr>
+<th style="text-align:center">Time(day)</th>
+<th style="text-align:center">50 (53.3 actual) deg</th>
+<th style="text-align:center">55 (60 actual) deg</th>
+<th style="text-align:center">60 deg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2.4972</td>
+<td style="text-align:center">3.6966</td>
+<td style="text-align:center">3.0972</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">2.4276</td>
+<td style="text-align:center">2.2458</td>
+<td style="text-align:center">2.562</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">.843</td>
+<td style="text-align:center">.0927</td>
+<td style="text-align:center">.1896</td>
+</tr>
+<tr>
+<td style="text-align:center">3</td>
+<td style="text-align:center">.7578</td>
+<td style="text-align:center">.07584</td>
+<td style="text-align:center">.0819</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">.7986</td>
+<td style="text-align:center">.0447</td>
+<td style="text-align:center">.014118</td>
+</tr>
+<tr>
+<td style="text-align:center">5</td>
+<td style="text-align:center">.7308</td>
+<td style="text-align:center"></td>
+<td style="text-align:center">.027804</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
@@ -11868,13 +11922,13 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[3]:</div>
+<div class="prompt output_prompt">Out[4]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x10d74a3c8&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x10c0e35c0&gt;</pre>
 </div>
 
 </div>
@@ -11900,17 +11954,28 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[67]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
 <span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">gc</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;process_csv/&#39;</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">process_csv</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">linregress</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="k">def</span> <span class="nf">random_string_generator</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">chars</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_lowercase</span> <span class="o">+</span> <span class="n">string</span><span class="o">.</span><span class="n">digits</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">chars</span><span class="p">)</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">))</span>
+<span class="k">class</span> <span class="nc">point</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">val</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">=</span><span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">temp</span><span class="o">=</span><span class="n">temp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">val</span><span class="o">=</span><span class="n">val</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dataset/ap_03072018_init_vel.csv&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">reader</span><span class="o">=</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
     <span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
@@ -11929,6 +11994,33 @@ div#notebook {
     <span class="n">val</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">val</span> <span class="k">if</span> <span class="n">a</span><span class="p">]))</span>
     <span class="n">csvdict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">csvdict</span><span class="p">)</span>
+<span class="n">csv_rowdict</span><span class="o">=</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span class="n">time</span><span class="o">=</span><span class="n">csvdict</span><span class="p">[</span><span class="s1">&#39;Time (day)&#39;</span><span class="p">]</span>
+<span class="n">temp</span><span class="o">=</span><span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">b</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">while</span> <span class="n">a</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+    <span class="k">while</span> <span class="n">b</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]):</span>
+        <span class="n">csv_rowdict</span><span class="p">[</span><span class="n">time</span><span class="p">[</span><span class="n">a</span><span class="p">]]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">a</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">][</span><span class="n">b</span><span class="p">])</span>
+        <span class="c1">#print(data[a][1:4][b])</span>
+        <span class="n">b</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="n">b</span><span class="o">=</span><span class="mi">0</span>
+    <span class="n">a</span><span class="o">+=</span><span class="mi">1</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">csv_rowdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">val</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">val</span> <span class="k">if</span> <span class="n">a</span><span class="p">]))</span>
+    <span class="n">csv_rowdict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">csv_rowdict</span><span class="p">)</span>
+<span class="n">val</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv_rowdict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]))</span>
+<span class="n">ptval_dict</span><span class="o">=</span><span class="p">{}</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
+    <span class="n">temp</span><span class="o">=</span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">csvdict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="n">key</span> <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">csv_rowdict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">value</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+    <span class="n">ptname</span><span class="o">=</span><span class="n">random_string_generator</span><span class="p">()</span>
+    <span class="n">ptval_dict</span><span class="p">[</span><span class="n">ptname</span><span class="p">]</span><span class="o">=</span><span class="n">i</span>
+    <span class="n">ptname</span><span class="o">=</span><span class="n">point</span><span class="p">(</span><span class="n">time</span><span class="p">,</span><span class="n">temp</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<span class="n">ptval_list</span><span class="o">=</span><span class="p">[]</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">ptval_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">ptval_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11945,8 +12037,27 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;Time (day)&#39;: [0.0, 0.0, 3.0, 3.0, 5.0, 5.0], &#39;50 (53.3 actual) deg &#39;: [2.4972, 2.4276, 0.843, 0.7578, 0.7986, 0.7308], &#39;55 (60 actual) deg&#39;: [3.6966, 2.2458, 0.0927, 0.07584, 0.0447], &#39;60 deg&#39;: [3.0972, 2.562, 0.1896, 0.0819, 0.014118, 0.027804]}
+<pre>{&#39;Time (day)&#39;: [0.0, 0.0, 3.0, 3.0, 5.0, 5.0], &#39;50 (53.3 actual) deg &#39;: [2.4972, 2.4276, 0.843, 0.7578, 0.7986, 0.7308], &#39;55 (60 actual) deg&#39;: [3.6966, 2.2458, 0.0927, 0.07584, 0.0447, 0.0447], &#39;60 deg&#39;: [3.0972, 2.562, 0.1896, 0.0819, 0.014118, 0.027804]}
+defaultdict(&lt;class &#39;list&#39;&gt;, {0.0: [2.4972, 3.6966, 3.0972, 2.4276, 2.2458, 2.562], 3.0: [0.843, 0.0927, 0.1896, 0.7578, 0.07584, 0.0819], 5.0: [0.7986, 0.0447, 0.014118, 0.7308, 0.0447, 0.027804]})
 </pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">AttributeError</span>                            Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-67-e6c689ebc2c0&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">     64</span>     ptval_list<span class="ansi-blue-fg">.</span>append<span class="ansi-blue-fg">(</span>key<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     65</span> <span class="ansi-green-fg">for</span> i <span class="ansi-green-fg">in</span> ptval_list<span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">---&gt; 66</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>i<span class="ansi-blue-fg">+</span>i<span class="ansi-blue-fg">.</span>temp<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">AttributeError</span>: &#39;str&#39; object has no attribute &#39;temp&#39;</pre>
 </div>
 </div>
 
