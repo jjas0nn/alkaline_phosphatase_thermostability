@@ -11786,12 +11786,13 @@ div#notebook {
 <h2 id="setup">setup<a class="anchor-link" href="#setup">&#182;</a></h2><hr>
 <ul>
 <li><strong><em>2.5 mg/mL A.P in H2O incubated at 53 and 60 degrees for 0,3,5 days.</em></strong></li>
+<li>hold concentration but vary time and temp</li>
 <li>Intended: 2.5 mg/mL A.P in buffer in H2O incubated at 50,55,60 degrees for 0,1,3,5 days.<ul>
 <li>Day 1 tubes pulled at day 5.</li>
 <li>Actual temp was 53 and 60 deg C.</li>
 </ul>
 </li>
-<li>18 replicates</li>
+<li>18 replicates-1=17 replicates</li>
 <li>no osmolytes</li>
 </ul>
 <h2 id="objectives">objectives<a class="anchor-link" href="#objectives">&#182;</a></h2><hr>
@@ -11954,7 +11955,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
@@ -11992,7 +11993,7 @@ div#notebook {
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">csvdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">val</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">val</span> <span class="k">if</span> <span class="n">a</span><span class="p">]))</span>
     <span class="n">csvdict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">csvdict</span><span class="p">)</span>
+<span class="c1">#print(csvdict)</span>
 <span class="n">csv_rowdict</span><span class="o">=</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 <span class="n">time_head</span><span class="o">=</span><span class="n">csvdict</span><span class="p">[</span><span class="s1">&#39;Time (day)&#39;</span><span class="p">]</span>
 <span class="n">temp_head</span><span class="o">=</span><span class="n">header</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
@@ -12008,7 +12009,7 @@ div#notebook {
 <span class="k">for</span> <span class="n">key</span><span class="p">,</span><span class="n">val</span> <span class="ow">in</span> <span class="n">csv_rowdict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="n">val</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[</span><span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">val</span> <span class="k">if</span> <span class="n">a</span><span class="p">]))</span>
     <span class="n">csv_rowdict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">=</span><span class="n">val</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">csv_rowdict</span><span class="p">)</span>
+<span class="c1">#print(csv_rowdict)</span>
 <span class="n">val</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">float</span><span class="p">,</span> <span class="p">[</span><span class="n">item</span> <span class="k">for</span> <span class="n">sublist</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv_rowdict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">sublist</span><span class="p">]))</span>
 <span class="n">ptval_dict</span><span class="o">=</span><span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">val</span><span class="p">:</span>
@@ -12079,9 +12080,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;Time (day)&#39;: [0.0, 0.0, 3.0, 3.0, 5.0, 5.0], &#39;50 (53.3 actual) deg &#39;: [2.4972, 2.4276, 0.843, 0.7578, 0.7986, 0.7308], &#39;55 (60 actual) deg&#39;: [3.6966, 2.2458, 0.0927, 0.07584, 0.0447, 0.0447], &#39;60 deg&#39;: [3.0972, 2.562, 0.1896, 0.0819, 0.014118, 0.027804]}
-defaultdict(&lt;class &#39;list&#39;&gt;, {0.0: [2.4972, 3.6966, 3.0972, 2.4276, 2.2458, 2.562], 3.0: [0.843, 0.0927, 0.1896, 0.7578, 0.07584, 0.0819], 5.0: [0.7986, 0.0447, 0.014118, 0.7308, 0.0447, 0.027804]})
-[(0.0, 2.4623999999999997, 0.03479999999999994, &#39;50 (53.3 actual) deg &#39;), (0.0, 2.9712, 0.7254, &#39;55 (60 actual) deg&#39;), (0.0, 2.8296, 0.26760000000000006, &#39;60 deg&#39;), (3.0, 0.8004, 0.04259999999999997, &#39;50 (53.3 actual) deg &#39;), (3.0, 0.08427000000000001, 0.00843, &#39;55 (60 actual) deg&#39;), (3.0, 0.13574999999999998, 0.053849999999999995, &#39;60 deg&#39;), (5.0, 0.7646999999999999, 0.033899999999999986, &#39;50 (53.3 actual) deg &#39;), (5.0, 0.0447, 0.0, &#39;55 (60 actual) deg&#39;), (5.0, 0.020961, 0.006842999999999999, &#39;60 deg&#39;)]
+<pre>[(0.0, 2.4623999999999997, 0.03479999999999994, &#39;50 (53.3 actual) deg &#39;), (0.0, 2.9712, 0.7254, &#39;55 (60 actual) deg&#39;), (0.0, 2.8296, 0.26760000000000006, &#39;60 deg&#39;), (3.0, 0.8004, 0.04259999999999997, &#39;50 (53.3 actual) deg &#39;), (3.0, 0.08427000000000001, 0.00843, &#39;55 (60 actual) deg&#39;), (3.0, 0.13574999999999998, 0.053849999999999995, &#39;60 deg&#39;), (5.0, 0.7646999999999999, 0.033899999999999986, &#39;50 (53.3 actual) deg &#39;), (5.0, 0.0447, 0.0, &#39;55 (60 actual) deg&#39;), (5.0, 0.020961, 0.006842999999999999, &#39;60 deg&#39;)]
 [0.0, 3.0, 5.0] [2.4623999999999997, 0.8004, 0.7646999999999999] [0.03479999999999994, 0.04259999999999997, 0.033899999999999986]
 [0.0, 3.0, 5.0] [2.9712, 0.08427000000000001, 0.0447] [0.7254, 0.00843, 0.0]
 [0.0, 3.0, 5.0] [2.8296, 0.13574999999999998, 0.020961] [0.26760000000000006, 0.053849999999999995, 0.006842999999999999]
@@ -12091,13 +12090,13 @@ defaultdict(&lt;class &#39;list&#39;&gt;, {0.0: [2.4972, 3.6966, 3.0972, 2.4276,
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[18]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x10dd53f98&gt;</pre>
+<pre>&lt;matplotlib.legend.Legend at 0x10de94080&gt;</pre>
 </div>
 
 </div>
