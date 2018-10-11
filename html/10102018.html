@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="0102018-kinetic-spec-assay">0102018 kinetic spec assay<a class="anchor-link" href="#0102018-kinetic-spec-assay">&#182;</a></h1>
+<h1 id="10102018-kinetic-spec-assay">10102018 kinetic spec assay<a class="anchor-link" href="#10102018-kinetic-spec-assay">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11897,7 +11897,8 @@ div#notebook {
 <thead><tr>
 <th style="text-align:center">Reagent</th>
 <th style="text-align:center">Volume</th>
-<th style="text-align:center">Final Concentration (Assay Concentration)</th>
+<th style="text-align:center">Final Concentration (in assay)</th>
+<th style="text-align:center">blank?</th>
 </tr>
 </thead>
 <tbody>
@@ -11905,16 +11906,19 @@ div#notebook {
 <td style="text-align:center">Alkaline phosphatase assay buffer</td>
 <td style="text-align:center">705 uL</td>
 <td style="text-align:center"></td>
+<td style="text-align:center">yes</td>
 </tr>
 <tr>
 <td style="text-align:center">50 mg/mL PNPP</td>
 <td style="text-align:center">7.5 uL</td>
 <td style="text-align:center"></td>
+<td style="text-align:center">yes</td>
 </tr>
 <tr>
-<td style="text-align:center">2.5 mg/mL Alkaline phosphatase dilution</td>
+<td style="text-align:center">2.5 mg/mL Alkaline phosphatase dilution in A.P assay buffer</td>
 <td style="text-align:center">37.5 uL</td>
 <td style="text-align:center">0.125 mg/mL</td>
+<td style="text-align:center">no</td>
 </tr>
 </tbody>
 </table>
@@ -11930,7 +11934,7 @@ div#notebook {
 <ul>
 <li>see "kinetic_spec_assay" for more info about kinetic spec assay procedures</li>
 </ul>
-<p><strong><em>A.P treatment</em></strong>
+<p><strong><em>A.P treatment:</em></strong>
 <strong><em>thaw on ice, store on ice</em></strong></p>
 <ul>
 <li>initial [A.P]: 50 mg/mL in A.P storage solution</li>
@@ -11938,8 +11942,21 @@ div#notebook {
 <li>make 131.25 x 13 uL of A.P master mix</li>
 <li>aliquot 131.25 A.P master mix in each tube</li>
 <li>incubate at specified temp for 0,15,30,90 mins</li>
-<li>after each timepoint, let A.P tubes sit on ice for 5 mins</li>
-<li>run in spectrometer</li>
+<li>after incubation period for each tube, let A.P tube sit on ice for 5 mins</li>
+</ul>
+<p><strong><em> data collection </em></strong></p>
+<ul>
+<li>blank spec with A.P assay buffer and 50 mg/mL PNPP</li>
+<li>start data collection w/blank</li>
+<li>add 37.5 uL 2.5 mg/mL A.P dilution into cuvette</li>
+<li>continue with data collection until equilibrium reached</li>
+<li>record dAbs410nm/sec and dAbs410nm/min for each run</li>
+</ul>
+<p><strong><em> data analysis</em></strong></p>
+<ul>
+<li>find avg init vel per min for each condition</li>
+<li>plot avg init vel per min vs time (min), 1 plot for each temp</li>
+<li>normalise data and plot % activity vs time (min), 1 plot for each temp</li>
 </ul>
 
 </div>
