@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>kinetic_spec_assay</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>10102018</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Kinetic-Spec-Assay-protocol">Kinetic Spec Assay protocol<a class="anchor-link" href="#Kinetic-Spec-Assay-protocol">&#182;</a></h1>
+<h1 id="0102018-kinetic-spec-assay">0102018 kinetic spec assay<a class="anchor-link" href="#0102018-kinetic-spec-assay">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11783,7 +11783,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reaction-mechanism">Reaction mechanism<a class="anchor-link" href="#Reaction-mechanism">&#182;</a></h2><p>Alkaline phosphatase cleaves phosphate group from paranitrophenylphosphate by hydrolysis to yield paranitrophenyl and inorganic phosphate. Paranitrophenyl max absorbance is 410 nm so the amount of absorbance indicates the amount of paranitrophenyl present and therefore the reaction progress.</p>
+<h3 id="purpose">purpose<a class="anchor-link" href="#purpose">&#182;</a></h3><hr>
+<p>establish temperature denaturation curve with unprotected A.P. gathering controls.</p>
 
 </div>
 </div>
@@ -11792,11 +11793,21 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Reagents">Reagents<a class="anchor-link" href="#Reagents">&#182;</a></h2><ol>
-<li>alkaline phosphatase assay buffer</li>
-<li>50 mg/mL PNPP (prepare fresh)</li>
-<li>alkaline phosphatase dilution (in buffer)</li>
-</ol>
+<h3 id="setup">setup<a class="anchor-link" href="#setup">&#182;</a></h3><hr>
+<ul>
+<li>no osmolyte</li>
+<li>no freezing</li>
+<li>initial [A.P]: 50 mg/mL in A.P storage solution</li>
+<li>[A.P] during incubation: <strong><em>2.5 mg/mL</em></strong> in A.P assay buffer</li>
+<li>incubation temp: 60, 65, 70 deg C</li>
+<li>time pts: 0,15,30,90 min</li>
+<li>A.P storage condition: temp,time</li>
+<li>3 temps x 4 time pts= <strong>12</strong> different conditions</li>
+<li>1 tube per condition</li>
+<li>3 reps per condition</li>
+<li><strong><em>total: 12 tubes=12 conditions, 36 reps</em></strong></li>
+<li>Final [A.P] in cuvette (assay concentration): 0.125 mg/mL in assay</li>
+</ul>
 
 </div>
 </div>
@@ -11807,26 +11818,18 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <table>
 <thead><tr>
-<th style="text-align:center">50mg/mL A.P aliquots</th>
-<th style="text-align:center">Location</th>
-<th style="text-align:center">Used</th>
+<th>reagent</th>
+<th>final concentration</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:center">2015 10 mL</td>
-<td style="text-align:center">-20 deg freezer</td>
-<td style="text-align:center">26012018-09022018</td>
+<td>50 mM A.P @ -80 deg C</td>
+<td>2.5 mg/mL in A.P assay buffer</td>
 </tr>
 <tr>
-<td style="text-align:center">2015 100 mL</td>
-<td style="text-align:center">-20 deg freezer</td>
-<td style="text-align:center">23022018-09032018</td>
-</tr>
-<tr>
-<td style="text-align:center">26042018 10 mL, 100 mL</td>
-<td style="text-align:center">-80 deg freezer</td>
-<td style="text-align:center">08052018-present</td>
+<td>PNPP</td>
+<td>50 mg/mL in H2O</td>
 </tr>
 </tbody>
 </table>
@@ -11838,12 +11841,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Materials">Materials<a class="anchor-link" href="#Materials">&#182;</a></h2><ol>
-<li>oceanoptics UV spec</li>
-<li>spectrometer cuvette</li>
-<li>microfuge tubes</li>
-<li>Logger pro</li>
-</ol>
+<h4 id="individual-microfuge-tube-contents">individual microfuge tube contents<a class="anchor-link" href="#individual-microfuge-tube-contents">&#182;</a></h4><hr>
+<ul>
+<li>131.25 uL 2.5 mg/mL A.P dilution in A.P assay buffer per tube=3.5 replicates per tube</li>
+</ul>
 
 </div>
 </div>
@@ -11852,26 +11853,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Procedure">Procedure<a class="anchor-link" href="#Procedure">&#182;</a></h2><p><strong><em>prep reagents</em></strong></p>
-<ol>
-<li>Alkaline phosphatase dilution--Thaw stock 50 mg/mL A.P in storage solution on ice. Dilute A.P stock solution in A.P assay buffer solution down to desired concentration. Store on ice.</li>
-<li>50 mg/mL PNPP--Dilute 12.5 mg PNPP in 250 uL dI H2O. Must be prepared fresh (day of spec assay). Store on ice, away from light.</li>
-</ol>
-<p><strong><em>prep spec</em></strong></p>
-<ol>
-<li>Blank spec with 705 uL A.P buffer solution and 7.5 uL 50 mg/mL PNPP:
- Fill cuvette with 705 uL A.P buffer solution and 7.5 uL 50 mg/mL PNPP.
- Place cuvette in spec with triangle facing forward.</li>
-<li>Set data collection mode to abs vs time @ 410 nm (max absorbance of PNP).</li>
-<li>Start data collection.  Cuvette should be in spec with A.P buffer solution and 50 mg/mL PNPP.</li>
-<li>As fast as possible, remove cuvette from spec. Pipette in 37.5 uL of alkaline phosphatase dilution, invert cuvette 4x, place back in spec.</li>
-<li>Absorbance vs time curve will increase noticeably. Stop data collection when curve levels off (equilibrium reached).  Solution should appear yellow.</li>
-<li><p>Rinse out cuvette with dI water after each run.</p>
+<h3 id="master-mix-for-2.5-mg/mL-A.P-in-A.P-assay-buffer">master mix for 2.5 mg/mL A.P in A.P assay buffer<a class="anchor-link" href="#master-mix-for-2.5-mg/mL-A.P-in-A.P-assay-buffer">&#182;</a></h3><hr>
+<ul>
+<li>C1=50mg/mL</li>
+<li><strong><em>V1=85.3125 uL 50 mg/mL A.P</em></strong></li>
+<li>C2=2.5 mg/mL A.P in A.P assay buffer</li>
+<li><p>V2=131.25uL x 13 tubes=1.70625 mL</p>
 </li>
-<li><p>record initial velocity dAbs410nm/sec --&gt; dAbs410nm/min</p>
+<li><p>A.P assay buffer to add=V2-V1=1706.25 uL - 85.3125 uL = <strong><em>1620.9375 uL</em></strong></p>
 </li>
-</ol>
-<p>A.P stock solution was diluted in 50mM Tris until 17052018.</p>
+</ul>
 
 </div>
 </div>
@@ -11880,7 +11871,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Assay-contents-in-cuvette">Assay contents in cuvette<a class="anchor-link" href="#Assay-contents-in-cuvette">&#182;</a></h2>
+<h3 id="PNPP-50-mg/mL-calculations">PNPP 50 mg/mL calculations<a class="anchor-link" href="#PNPP-50-mg/mL-calculations">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11888,7 +11879,12 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="current-configuration">current configuration<a class="anchor-link" href="#current-configuration">&#182;</a></h3>
+<hr>
+<ul>
+<li>vol needed=7.5 uL x 36 reps = 270 uL --&gt; <strong><em>300 uL H2O</em></strong></li>
+<li>50 mg/mL x .3 mL = <strong><em>15 mg PNPP</em></strong></li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -11896,6 +11892,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="cuvette-contents-(assay)">cuvette contents (assay)<a class="anchor-link" href="#cuvette-contents-(assay)">&#182;</a></h4><hr>
 <table>
 <thead><tr>
 <th style="text-align:center">Reagent</th>
@@ -11929,83 +11926,21 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="as-of-23022018">as of 23022018<a class="anchor-link" href="#as-of-23022018">&#182;</a></h3><p>total 750 uL</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead><tr>
-<th style="text-align:center">Reagent</th>
-<th style="text-align:center">Volume</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Alkaline phosphatase assay buffer</td>
-<td style="text-align:center">705 uL</td>
-</tr>
-<tr>
-<td style="text-align:center">50 mg/mL PNPP</td>
-<td style="text-align:center">7.5 uL</td>
-</tr>
-<tr>
-<td style="text-align:center">Alkaline phosphatase dilution</td>
-<td style="text-align:center">37.5 uL</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="26012018---02022018">26012018 - 02022018<a class="anchor-link" href="#26012018---02022018">&#182;</a></h3><p>total 600 uL</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<table>
-<thead><tr>
-<th style="text-align:center">Reagent</th>
-<th style="text-align:center">Volume</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">Alkaline phosphatase assay buffer</td>
-<td style="text-align:center">564 uL</td>
-</tr>
-<tr>
-<td style="text-align:center">50 mg/mL PNPP</td>
-<td style="text-align:center">6 uL</td>
-</tr>
-<tr>
-<td style="text-align:center">Alkaline phosphatase dilution</td>
-<td style="text-align:center">30 uL</td>
-</tr>
-</tbody>
-</table>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="exception-on-09022018:">exception on 09022018:<a class="anchor-link" href="#exception-on-09022018:">&#182;</a></h3><p>vary PNPP concentration while holding A.P concentration constant. see 09022018 for more details</p>
+<h3 id="Procedure">Procedure<a class="anchor-link" href="#Procedure">&#182;</a></h3><hr>
+<ul>
+<li>see "kinetic_spec_assay" for more info about kinetic spec assay procedures</li>
+</ul>
+<p><strong><em>A.P treatment</em></strong>
+<strong><em>thaw on ice, store on ice</em></strong></p>
+<ul>
+<li>initial [A.P]: 50 mg/mL in A.P storage solution</li>
+<li>dilute 50 mg/mL A.P in storage solution to 2.5 mg/mL A.P in A.P assay buffer master mix</li>
+<li>make 131.25 x 13 uL of A.P master mix</li>
+<li>aliquot 131.25 A.P master mix in each tube</li>
+<li>incubate at specified temp for 0,15,30,90 mins</li>
+<li>after each timepoint, let A.P tubes sit on ice for 5 mins</li>
+<li>run in spectrometer</li>
+</ul>
 
 </div>
 </div>
